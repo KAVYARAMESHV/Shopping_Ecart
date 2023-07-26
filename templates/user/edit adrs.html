@@ -1,0 +1,60 @@
+{% extends 'user/index.html' %}
+{% block body %}
+<body>
+<form method="post" action="/myapp/edit_adrsPost/">
+    {% csrf_token %}
+    <h2>Update  Your Address Here</h2>
+    <p></p>
+    <p></p>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Name</th><input type="hidden" name="id" value="{{ data.id }}">
+            <td><input type="text" name="sname" class="form-control" required value="{{ data.name }}"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type="text" name="sphone" class="form-control" value="{{ data.phone }}" required></td>
+        </tr>
+        <tr>
+            <th>House/Building/Office</th>
+            <td><input type="text" name="house" class="form-control" value="{{ data.house }}" required></td>
+        </tr>
+        <tr>
+            <th>Place</th>
+            <td><input type="text" name="place" class="form-control" value="{{ data.place }}" required></td>
+        </tr>
+        <tr>
+            <th>Road Name/Area/Colony</th>
+            <td><input type="text" name="road" class="form-control" value="{{ data.roadname }}" required></td>
+        </tr>
+        <tr>
+            <th>Pincode</th>
+            <td><input type="text" name="pin" class="form-control" value="{{ data.pincode }}" required></td>
+        </tr>
+        <tr>
+            <th>Land Mark</th>
+            <td><input type="text" name="lm" class="form-control" required value="{{ data.landmark }}"></td>
+        </tr>
+        <tr>
+            <th>Type of Address</th>
+            <td> <input type="radio" id="radio1" name="radioGroup" value="House" {% if data.adrstype == 'House' %}checked{% endif %}> Home<br><br>
+                 <input type="radio" id="radio2" name="radioGroup" value="Work" {% if data.adrstype == 'Work' %}checked{% endif %}> Work</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="s1" value="UPDATE" class="btn btn-warning"></td>
+        </tr>
+
+
+
+    </table>
+
+
+
+
+</form>
+
+</body>
+
+
+{% endblock %}

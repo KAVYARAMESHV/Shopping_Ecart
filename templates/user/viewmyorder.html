@@ -1,0 +1,32 @@
+{% extends 'user/index.html' %}
+{% block body %}
+       <div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 30px">
+       <p>All Orders</p>
+</div>
+<body>
+<table class=" table table-bordered">
+    <tr style="color: white; background-color: black">
+        <th>SL NO</th>
+        <th>DATE</th>
+        <th>ADDRESS</th>
+        <th>AMOUNT</th>
+        <th>ORDER STATUS</th>
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.useradrs.name }}<br>
+            {{ i.useradrs.phone }}<br>
+            {{ i.useradrs.house }},{{ i.useradrs.place }},
+            {{ i.useradrs.roadname }},{{ i.useradrs.pincode }},{{ i.useradrs.landmark }}
+            <br>Address Type : {{ i.useradrs.adrstype }}</td>
+        <td>{{ i.amount }}</td>
+        <td>{{ i.Status }}</td>
+        <td><a href="/myapp/my_ordermore/{{ i.id }}" class="btn btn-warning">View More</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!-- payment.html -->
+   <div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 30px">
+       <p>Pay Now</p>
+</div>
+{% extends 'user/index.html' %}
+{% block body %}
+    <head>
+    <title>Payment Form</title>
+</head>
+<body>
+    <h1>Payment Form</h1>
+    <form method="post" action="/myapp/process_payment/">
+        {% csrf_token %}
+        <table style="margin-top: 20px" class="table table-borderless">
+            <tr>
+                <th>Choose Your Address</th>
+            <th>
+                <select name="adrs" class="form-control" required>
+                    <option value="">Select an Address</option>
+                    {% for i in address %}
+                        <option value="{{ i.id }}"
+                            data-adrstype="{{ i.adrstype }}- "
+                            data-username="{{ i.name }}"
+                            data-phone="{{ i.phone }}"
+                            data-house="{{ i.house }}"
+                            data-place="{{ i.place }}"
+                            data-roadname="{{ i.roadname }}"
+                            data-pincode="{{ i.pincode }}"
+                            data-landmark="{{ i.landmark }}">
+                            Address Type: {{ i.adrstype }} ,{{ i.USER.name }}, {{ i.phone }}, {{ i.house }}, {{ i.place }}, {{ i.roadname }}, {{ i.pincode }}, {{ i.landmark }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </th>
+
+            </tr>
+        </table>
+
+        <table class="table table-borderless">
+            <tr>
+                <th><label for="acnt_no">Account Number:</label></th>
+                <td><input type="text" id="acnt_no" name="acnt_no" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th><label for="ifsc_code">IFSC Code:</label></th>
+                <td><input type="text" id="ifsc_code" name="ifsc_code" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th><label for="total_amount">Total Amount:</label></th>
+                <td><input type="text" id="total_amount" name="total_amount" value="{{ total_amount }}" required class="form-control"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </td>
+            </tr>
+
+        </table>
+
+
+    </form>
+</body>
+{% endblock %}

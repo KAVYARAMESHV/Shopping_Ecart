@@ -1,0 +1,44 @@
+{% extends 'user/index.html' %}
+{% block body %}
+<body>
+<div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 30px">
+       <p>Product List</p>
+</div>
+
+<table>
+    <tr>
+
+
+            {% for i in data %}
+
+<div class="col-md-4 top_brand_left" style="margin-top: 20px">
+									<div class="hover14 column">
+										<div class="agile_top_brand_left_grid">
+                <div class="agile_top_brand_left_grid1">
+												<figure>
+													<div class="snipcart-item block">
+														<div class="snipcart-thumb">
+															<a href="#"><img src="{{ i.photo }}" alt=" " class="img-responsive" /></a>
+															<p>{{ i.productname }}</p>
+                                                            <p>{{ i.description }}</p>
+															<h4><i class="fa fa-inr" aria-hidden="true"></i>{{ i.price }}</h4>
+														</div>
+														<div class="snipcart-details top_brand_home_details">
+
+                                                            <a class="btn btn-warning"  href="/myapp/addcart/{{ i.id }}">Add to Cart</a>
+
+														</div>
+													</div>
+												</figure>
+											</div>
+                                        </div>
+                                    </div>
+</div>
+
+            {% endfor %}
+
+{#        </td>#}
+    </tr>
+</table>
+</body>
+{% endblock %}

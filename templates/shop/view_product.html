@@ -1,0 +1,34 @@
+{% extends 'shop/index.html' %}
+{% block body %}
+<body>
+<form method="post" action="">
+<div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 50px">
+       <p>Added Product Details</p>
+</div>
+
+
+    <table class="table table-bordered table-hover">
+
+        <tr style="color: white; background-color: black">
+            <th>SL NO</th>
+            <th>PRODUCT</th>
+            <th>IMAGE</th>
+            <th>DESCRIPTION</th>
+            <th>PRICE</th>
+            <th colspan="2"></th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.productname }}</td>
+            <td><img src="{{ i.photo }}" width="100px" height="100px"></td>
+            <td>{{ i.description }}</td>
+            <td><i class="fa fa-inr" aria-hidden="true"></i> {{ i.price }}</td>
+            <td><a href="/myapp/edit_product/{{ i.id }}" class="btn btn-info">Edit</a> </td>
+            <td><a href="/myapp/delete_product/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are you Sure?')">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'user/index.html' %}
+{% block body %}
+       <div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 30px">
+       <p>More About Your Order</p>
+</div>
+<body>
+<div align="center" style="color: #ffae3f; font-family: Algerian; font-size: 50px">
+       <p>More Details</p>
+</div>
+
+<table class="table table-bordered">
+    <tr style="color: white; background-color: black">
+        <th>SL NO</th>
+        <th>PRODUCT INFO</th>
+
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <th>{{ forloop.counter }}</th><th><img src="{{ i.PRODUCT.photo }}" width="100px" height="100px">
+        <br><p>Name : {{ i.PRODUCT.productname }}
+        <br>Price : <i class="fa fa-inr" aria-hidden="true"></i>{{ i.PRODUCT.price }}
+        <br><p style="word-break: normal; display: flex; color: #ff9e27">{{ i.PRODUCT.description }}</p>
+        QTY : {{ i.quantity }}</th>
+        <td align="center"><a href=""><img src="/static/web/images/rating.png" width="50px" height="50px"><br>
+        Send Rating</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

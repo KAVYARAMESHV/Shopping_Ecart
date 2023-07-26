@@ -1,0 +1,74 @@
+{% extends 'user/index.html' %}
+{% block body %}
+<body>
+<form method="post" action="">
+
+{#            {% for i in data %}#}
+
+<div class="col-md-4 top_brand_left" >
+
+        {% for i in data %}
+            <div class="hover14 column" style="margin-top: 10px">
+            <div class="agile_top_brand_left_grid">
+                <div class="agile_top_brand_left_grid1">
+                    <figure>
+                        <div class="snipcart-item block">
+                            <div class="snipcart-thumb">
+                                <table>
+                                    <tr>
+                                        <td><img src="/static/web/images/user.png" width="50px" height="50px" style="margin-right: 100px"></td>
+                                        <th style="color: #337ab7; font-size: 20px;"> {{ i.name }}</th>
+
+                                    </tr>
+                                </table>
+                                <table style="margin-top: 10px">
+
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>: {{ i.phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>House/<br>Building/Office </th>
+                                        <td>: {{ i.house }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Place</th>
+                                        <td>: {{ i.place }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Road Name/<br>Colony/Area</th>
+                                        <td>: {{ i.roadname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pincode</th>
+                                        <td>: {{ i.pincode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Landmark</th>
+                                        <td>: {{ i.landmark }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type of Address</th>
+                                        <td>: {{ i.adrstype }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="snipcart-details top_brand_home_details">
+                                <small class="flex-fill text-center py-2"><a href="/myapp/delete_adrs/{{ i.id }}" class="btn btn-outline-danger" onclick="return confirm('Are you Sure ?')"><i class="fa fa-trash" aria-hidden="true"></i></a></small>
+                                <small class="flex-fill text-center py-2"><a href="/myapp/editadrs/{{ i.id }}" class="btn btn-outline-danger"><i class="fa fa-pencil" aria-hidden="true"></i></a></small>
+
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+
+</div>
+
+{#            {% endfor %}#}
+
+</form>
+</body>
+{% endblock %}
