@@ -301,3 +301,21 @@ def logout_view(request):
     return redirect(loginpage)
 
 
+def rating_page(request,id):
+    res =product.objects.get(id=id)
+    return render(request,'user/rating.html',{'data':res})
+
+def send_rating(request):
+    txt = request.POST['desc']
+    rat = request.POST['r1']
+
+    lid = request.session['id']
+    pid = request.POST['h1']
+    obj = rating()
+    obj.date = timezone.now()
+    obj.message = txt
+    obj.ratingg = rat
+    obj.USER = user.objects.get(LOGIN_id=lid)
+    obj.PRODUCT_id = pid
+    obj.save()
+    return HttpResponse("<script>alert('Success!');window.location='/myapp/userhome/'</script>")

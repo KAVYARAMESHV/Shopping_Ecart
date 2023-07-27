@@ -26,12 +26,7 @@ class cart(models.Model):
     date = models.DateField(max_length=10)
     total = models.CharField(max_length=50)
 
-class rating(models.Model):
-    PRODCUT = models.ForeignKey(product, on_delete=models.CASCADE, default=1)
-    USER = models.ForeignKey(user, on_delete=models.CASCADE, default=1)
-    message = models.CharField(max_length=200)
-    rating = models.FloatField()
-    date = models.CharField(max_length=50)
+
 
 
 class useradrres(models.Model):
@@ -66,7 +61,12 @@ class Bank(models.Model):
 
 
 
-
+class rating(models.Model):
+    PRODUCT = models.ForeignKey(product, on_delete=models.CASCADE, default=1)
+    USER = models.ForeignKey(user, on_delete=models.CASCADE, default=1)
+    message = models.CharField(max_length=200)
+    ratingg = models.FloatField()
+    date = models.CharField(max_length=50)
 
 
 

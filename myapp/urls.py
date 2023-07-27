@@ -48,6 +48,8 @@ urlpatterns = [
     path('myorder/', views.view_myorder),
     path('my_ordermore/<str:id>', views.my_ordermore),
 
+    path('rating/<str:id>', views.rating_page),
+    path('send_rating/', views.send_rating),
 
 
     path('logout/', views.logout_view, name='logout'),
