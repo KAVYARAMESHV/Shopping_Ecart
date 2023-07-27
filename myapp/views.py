@@ -285,7 +285,8 @@ def process_payment(request):
 
 
 def view_myorder(request):
-    res = ordermain.objects.all()
+    lid = request.session['id']
+    res = ordermain.objects.filter(USER_id=user.objects.get(LOGIN_id=lid))
     return render(request,'user/viewmyorder.html',{'data':res})
 
 
